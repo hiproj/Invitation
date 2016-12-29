@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:padding="8dp" >
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="#5b55">
+
+        <TextView
+            android:id="@+id/headerText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="초청장을 선택하세요."
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:orientation="vertical">
+        
+        <LinearLayout
+	        android:id="@+id/containerTop"
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1" >
+	        
+            <LinearLayout
+                android:id="@+id/containerLeftTop"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#BBD6DFEF" 
+                android:gravity="center"
+                android:padding="10dp" >
+
+		    </LinearLayout>
+		        
+			<LinearLayout
+			    android:id="@+id/containerRightTop"
+			    android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:background="#bbEDD3D3" 
+			    android:gravity="center"
+			    android:padding="10dp" >
+	        
+			</LinearLayout>
+	        
+		</LinearLayout>
+	        
+        <LinearLayout
+	        android:id="@+id/containerBottom"
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1" >
+			
+            <LinearLayout
+                android:id="@+id/containerLeftBottom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#bbEDD3D3"
+                android:gravity="center"
+                android:padding="10dp" >
+
+		    </LinearLayout>
+		        
+			<LinearLayout
+			    android:id="@+id/containerRightBottom"
+			    android:layout_width="0dp"
+			    android:layout_height="match_parent"
+			    android:layout_weight="1"
+			    android:background="#BBD6DFEF" 
+			    android:gravity="center"
+			    android:padding="10dp" >
+	        
+			</LinearLayout>
+        
+    	</LinearLayout>
+        
+    	
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="#555b" >
+
+        <TextView
+            android:id="@+id/footerText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="초청장을 선택하세요."
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

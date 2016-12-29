@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/inputFlRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE3E7"
+    android:gravity="center" >
+
+    <ImageView
+        android:id="@+id/ivMessageInputBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/val0" 
+        android:padding="8dp"/>
+    
+    <EditText
+        android:id="@+id/edtMessageInputText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#0000"
+        android:gravity="center"
+        android:hint="메세지를 입력하세요." 
+        android:textSize="26sp"/>
+
+    <ImageView
+        android:id="@+id/ivShare"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right|top"
+        android:src="@drawable/abc_ic_menu_share_holo_light"
+        />
+    
+</FrameLayout>

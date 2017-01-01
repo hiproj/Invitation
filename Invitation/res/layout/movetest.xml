@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/flMoveTest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                >
+
+                <FrameLayout
+                    android:id="@+id/flTextMoveCaptureLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:id="@+id/ivBgTextMove"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/val0" 
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"/>
+
+                    <com.invitation.FlTextMove
+                        android:id="@+id/textMove"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                    </com.invitation.FlTextMove>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.3"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/ivSetTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/ic_menu_edit" >
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/ivTextMoveControl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:src="@drawable/controls" >
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/ivShare"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/abc_ic_menu_share_holo_light" >
+                </ImageView>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

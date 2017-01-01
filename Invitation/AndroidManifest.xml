@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme" >
         
         <activity
-            android:name=".ActMain"
+            android:name="com.invitation.ActMain"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name" >
             <intent-filter>
@@ -28,9 +28,9 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".ActSplash" />
-        <activity android:name=".ActCardSelect" />
-        <activity android:name=".ActInput" />
+        <activity android:name="com.invitation.ActSplash" />
+        <activity android:name="com.invitation.ActCardSelect" />
+        <activity android:name="com.invitation.ActInput" />
         
     </application>
 

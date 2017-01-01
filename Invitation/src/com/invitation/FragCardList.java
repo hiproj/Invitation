@@ -10,9 +10,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.invitation.R;
 
 
-public class FragCardSelect extends Fragment {
+public class FragCardList extends Fragment {
 	
 	int[] cardSelectAreaIdList = {
 		R.id.containerLeftTop,
@@ -32,6 +33,14 @@ public class FragCardSelect extends Fragment {
 	
 	ItfEvent event;
 	
+	public int getCardSelectAreaId(int idx) {
+		return cardSelectAreaIdList[idx];
+	}
+	
+	public int getCardSelectResId(int idx) {
+		return cardDrawableIdList[idx];
+	}
+	
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
@@ -40,7 +49,7 @@ public class FragCardSelect extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		return inflater.inflate(R.layout.cardselect, container, false);
+		return inflater.inflate(R.layout.cardlist, container, false);
 	}
 	
 	@Override

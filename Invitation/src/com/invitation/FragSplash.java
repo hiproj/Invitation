@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.invitation.R;
 
 
 public class FragSplash extends Fragment {
@@ -23,7 +24,7 @@ public class FragSplash extends Fragment {
 			public void run(){
 				event.splashEnd();
 			}
-		}, 2500);
+		}, 1000);
 		
 	}
 	

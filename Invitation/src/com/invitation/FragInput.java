@@ -3,7 +3,6 @@ package com.invitation;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,16 +27,17 @@ import android.view.animation.ScaleAnimation;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import com.invitation.R;
 
 public class FragInput extends Fragment {
 	
-	Activity attachActivity;
-	int cardSelIdx;
+	private ActMain actMain;
+	private int cardSelIdx, cardResId;
 	
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		attachActivity = activity;
+		actMain = (ActMain) activity;
 	}
 	
 	@Override
@@ -45,8 +45,9 @@ public class FragInput extends Fragment {
 		return inflater.inflate(R.layout.messageinput, container, false);
 	}
 	
-	public void setSelctCardIndex(int selIdx) {
+	public void setSelctCardIndexAndResId(int selIdx, int resId) {
 		cardSelIdx = selIdx;
+		cardResId = resId;
 	}
 	
 	@Override
@@ -54,7 +55,7 @@ public class FragInput extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		//
 		ImageView iv = (ImageView) getView().findViewById(R.id.ivMessageInputBg);
-		iv.setImageResource(ActCardSelect.cardResId[cardSelIdx]);
+		iv.setImageResource(cardResId);
 		iv.setAlpha(180);
 		//
 		final EditText edt = (EditText) getView().findViewById(R.id.edtMessageInputText);
@@ -63,7 +64,7 @@ public class FragInput extends Fragment {
 			"연락처 : " + getPhoneNumber() + "\n"
 			);
 		
-		final TextViewStroke tvHidden = new TextViewStroke(attachActivity);
+		final TVStroke tvHidden = new TVStroke(actMain);
 		FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 		flp.gravity = Gravity.CENTER_HORIZONTAL;
 		flp.setMargins(0, 50, 0, 0);
@@ -72,6 +73,7 @@ public class FragInput extends Fragment {
         tvHidden.setText("꼭!\n입사하고 싶습니다!");
         tvHidden.setTextColor(Color.parseColor("#61E1FE"));
         tvHidden.setTextSize(40);
+        tvHidden.setStrokeColor(Color.BLUE);
         tvHidden.setTypeface(null, Typeface.BOLD);
         tvHidden.setVisibility(View.INVISIBLE);
         ((FrameLayout) getView().findViewById(R.id.inputFlRoot)).addView(tvHidden);
@@ -130,7 +132,7 @@ public class FragInput extends Fragment {
 	}
 	
 	public String getPhoneNumber() {
-		TelephonyManager mgr = (TelephonyManager) attachActivity.getSystemService(Context.TELEPHONY_SERVICE);
+		TelephonyManager mgr = (TelephonyManager) actMain.getSystemService(Context.TELEPHONY_SERVICE);
 		return mgr.getLine1Number();
 	}
 

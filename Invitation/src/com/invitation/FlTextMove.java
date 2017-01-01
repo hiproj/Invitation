@@ -19,6 +19,7 @@ public class FlTextMove extends FrameLayout{
 	FrameLayout.LayoutParams	flpTarget;
 	
 	TVStroke tvTarget;
+	int selectColor = Color.argb(150, 0, 100, 100);
 	
 	public FlTextMove(Context context){
 		super(context);
@@ -30,21 +31,31 @@ public class FlTextMove extends FrameLayout{
 		init(context);
 	}
 	
-	public void init(Context context){
+	public void releaseTv() {
+		for (int i = 0; i < tvList.size(); i++) {
+			tvList.get(i).setBackgroundColor(0);
+		}
+	}
+	
+	public void addTextView(Context context) {
+		releaseTv();
 		TVStroke tv = new TVStroke(context);
 		tv.setText("초대합니다.");
 		tv.setTextSize(24);
 		tv.setStrokeColor(Color.BLUE);
 		tv.setTextColor(Color.CYAN);
-		tv.setBackgroundColor(Color.argb(50, 0, 0, 150));
+		tv.setBackgroundColor(selectColor);
 		
 		tv.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP));
 		tv.setOnTouchListener(lst);
 		tvList.add(tv);
-		addView(tvList.get(0));
-		
-		tvTarget = tvList.get(0);
+		addView(tv);
+		tvTarget = tv;
 		flpTarget = (FrameLayout.LayoutParams) tvTarget.getLayoutParams();
+	}
+	
+	public void init(Context context){
+		addTextView(context);		
 	}
 	
 	OnTouchListener	lst	= new OnTouchListener(){
@@ -54,8 +65,12 @@ public class FlTextMove extends FrameLayout{
 		
 		@Override
 		public boolean onTouch(View v, MotionEvent event){
-			tvTarget = (TVStroke) v;
-			flpTarget = (FrameLayout.LayoutParams) tvTarget.getLayoutParams();
+			if (tvTarget != v) {
+				releaseTv();
+				tvTarget = (TVStroke) v;
+				tvTarget.setBackgroundColor(selectColor);
+				flpTarget = (FrameLayout.LayoutParams) tvTarget.getLayoutParams();
+			}
 			switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
 					downX = event.getRawX();

@@ -24,15 +24,13 @@ import android.widget.ImageView;
 
 public class FragMoveTest extends Fragment{
 	
-	ActMain actMain;
-	FlTextMove	tm;
-	ImageView	ivControler;
-	EditText	edt;
-	ItfEvent	itfEvent;
-	
-	private int cardSelIdx, cardResId;
-	
-	public static final String samplePath = Environment.getExternalStorageDirectory().toString()+"/sample.jpeg";
+	ActMain						actMain;
+	FlTextMove					tm;
+	ImageView					ivControler;
+	EditText					edt;
+	ItfEvent					itfEvent;
+	private int					cardSelIdx, cardResId;
+	public static final String	samplePath	= Environment.getExternalStorageDirectory().toString() + "/sample.jpeg";
 	
 	@Override
 	public void onAttach(Activity activity){
@@ -45,16 +43,15 @@ public class FragMoveTest extends Fragment{
 		return inflater.inflate(R.layout.movetest, container, false);
 	}
 	
-	public void setSelctCardIndexAndResId(int selIdx, int resId) {
+	public void setSelctCardIndexAndResId(int selIdx, int resId){
 		cardSelIdx = selIdx;
 		cardResId = resId;
 	}
 	
-	public void setBackground(int resId) {
+	public void setBackground(int resId){
 		ImageView iv = (ImageView) getView().findViewById(R.id.ivBgTextMove);
 		iv.setImageResource(resId);
 		iv.setAlpha(180);
-		
 		Log.d("d", "val0 : " + R.drawable.val0);
 		Log.d("d", "cardResId : " + cardResId);
 	}
@@ -63,9 +60,7 @@ public class FragMoveTest extends Fragment{
 	public void onActivityCreated(Bundle savedInstanceState){
 		super.onActivityCreated(savedInstanceState);
 		itfEvent = (ActMain) getActivity();
-		
 		setBackground(cardResId);
-		
 		tm = (FlTextMove) getView().findViewById(R.id.textMove);
 		ivControler = (ImageView) getView().findViewById(R.id.ivTextMoveControl);
 		ivControler.setOnTouchListener(new OnTouchListener(){
@@ -101,7 +96,6 @@ public class FragMoveTest extends Fragment{
 				itfEvent.startStyleChange();
 			}
 		});
-		
 		getView().findViewById(R.id.ivShare).setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -117,34 +111,41 @@ public class FragMoveTest extends Fragment{
 				startActivity(Intent.createChooser(sharedIntent, "전송하기"));
 			}
 		});
+		getView().findViewById(R.id.ivAddTextView).setOnClickListener(new OnClickListener(){
+			
+			@Override
+			public void onClick(View v){
+				tm.addTextView(getActivity());
+			}
+		});
 	}
 	
 	public void setTextColor(int color){
 		tm.setTextColor(color);
 	}
-
-	public void setTextColorStroke(int color) {
+	
+	public void setTextColorStroke(int color){
 		tm.setTextColorStroke(color);
 	}
-
-	public void setTextSize(int size) {
+	
+	public void setTextSize(int size){
 		tm.setTextSize(size);
 	}
-
-	public FlTextMove getFlTextMove() {
+	
+	public FlTextMove getFlTextMove(){
 		return tm;
 	}
-
-	public void capture(View container, View area) {
+	
+	public void capture(View container, View area){
 		container.buildDrawingCache();
-	    Bitmap captureView = container.getDrawingCache();
-	    captureView = Bitmap.createBitmap(captureView, area.getLeft(), area.getTop(), area.getWidth(), area.getHeight());
-	    FileOutputStream fos;
-	    try {
-	        fos = new FileOutputStream(samplePath);
-	        captureView.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-	    } catch (FileNotFoundException e) {
-	        e.printStackTrace();
-	    }
+		Bitmap captureView = container.getDrawingCache();
+		captureView = Bitmap.createBitmap(captureView, area.getLeft(), area.getTop(), area.getWidth(), area.getHeight());
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream(samplePath);
+			captureView.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }
